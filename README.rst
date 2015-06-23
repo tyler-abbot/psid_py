@@ -15,5 +15,8 @@ The package comes with a ``test.py`` file that contains typical function calls a
 
 More testing is forthcoming in future distributions.
 
+The project can be downloaded from https://pypi.python.org/pypi/psid_py .
+
+To install simply run ``pip install psid_py``
 
 This project is released under an MIT license.
