@@ -71,5 +71,5 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=['requests',
                       'pandas',
-                      'bs4'],
+                      'beautifulsoup4'],
 )
