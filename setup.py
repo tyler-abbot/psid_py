@@ -21,7 +21,7 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
 
 setup(
     name='psid_py',
-    version='1.0.0',
+    version='1.0.1',
     description='A tool to build PSID panels.',
 
     # The project's main homepage

@@ -419,11 +419,11 @@ def read_sas(data_file, dict_file, beginline=1, buffersize=50,
     #If the ASCII file is zipped, unpack it and store
     if zipped:
         td = tempfile.mkdtemp()
-        name = tempfile.namelist()
+        temp = zipfile.ZipFile(data_file)
+        name = temp.namelist()
         if len(name) > 1:
             print('ERROR: The data file is a zip archive containing multiple '
                   + 'files.  Please supply only a single file.')
-        temp = zipfile.ZipFile(data_file)
         temp.extract(name, td)
         data_file = td + os.sep + name
 
