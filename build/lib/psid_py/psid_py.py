@@ -139,12 +139,18 @@ def get_psid(file, datadir, name, params, c):
     #Create a temporary directory to store unzipped files
     temp_dir = tempfile.mkdtemp() + os.sep
 
-    url = 'http://simba.isr.umich.edu/Zips/GetFile.aspx?file=' + file
-
+    url = 'http://simba.isr.umich.edu/U/Login.aspx?'\
+        + 'redir=http%3a%2f%2fsimba.isr.umich.edu%2fU%2fLogout.aspx'
+    referer = "http://simba.isr.umich.edu/U/Login.aspx?"\
+        + "redir=http://simba.isr.umich.edu/U/Logout.aspx"
     c.post('http://simba.isr.umich.edu/u/Login.aspx', data=params,
-           headers={"Referer": "http://psidonline.isr.umich.edu/"})
+           headers={"Referer": referer}, allow_redirects=True)
 
-    data = c.get(url, allow_redirects=False)
+    url = 'http://simba.isr.umich.edu/Zips/GetFile.aspx?file='\
+        + file + '&mainurl=Y'
+    referer = "http://simba.isr.umich.edu/Zips/ZipMain.aspx"
+    data = c.get(url, allow_redirects=False,
+                 headers={'Referer': referer})
 
     #Extract all of the zipped sas and txt files
     zipped = zipfile.ZipFile(BytesIO(data.content))

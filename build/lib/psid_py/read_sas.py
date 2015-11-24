@@ -455,7 +455,7 @@ def read_sas(data_file, dict_file, beginline=1, buffersize=50,
             # Assuming that the data came from parse_sas, must correct for
             # scientific notation in the SAS file
             if not DF_cleaned.loc[l, 'char']:
-                sas_file.loc[l,:] *= DF_cleaned['divisor'][l]
+                sas_file.loc[l, :] *= DF_cleaned['divisor'][l]
     #Remove any temporary dirs
     return sas_file
 
